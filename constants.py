@@ -1,3 +1,4 @@
+SWEETS = ('🍬', '🍭', '🍫', '🍰', '🍪', '🍩', '🍨', '🍮', '☕')
 GREETING_INPUTS = ('hello', 'hi', 'greetings', "what's up?", 'sup', 'hey', 'yo', "how's it going?", 'how are you doing?', "what's going on?", 'good to see you', 
 	'nice to see you', 'good morning', 'good afternoon', 'good_evening', "it's nice to meet you", 'pleased to meet you')
 GREETING_REPLIES = ('Hi!', 'Hey!', '*nods*', 'Hi there!', 'Hello!', "I'm glad you are talking to me!")

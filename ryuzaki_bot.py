@@ -43,7 +43,7 @@ class Reply(Resource) :
         if request.args.get('q') :
             formality_reply = get_formalities_reply(request.args.get('q'))
             if  formality_reply :
-                return simplejson.dumps([{'reply': formality_reply}])
+                return simplejson.dumps([{'reply': formality_reply + ' ' + random.choice(constants.SWEETS)}])
             else :
                 return simplejson.dumps([{'reply': get_query_reply(request.args.get('q'))}])
         else :
