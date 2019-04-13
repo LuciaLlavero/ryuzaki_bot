@@ -22,6 +22,9 @@ def get_lemmatized_tokens(text):
     normalized_tokens = nltk.word_tokenize(remove_punctuation_marks(text.lower()))
     return [nltk.stem.WordNetLemmatizer().lemmatize(normalized_token) for normalized_token in normalized_tokens]
 
+corpus = open('corpus.txt', 'r' , errors = 'ignore').read().lower()
+documents = nltk.sent_tokenize(corpus)
+
 def get_query_reply(query) :    
     documents.append(query)
     tfidf_results = TfidfVectorizer(tokenizer = get_lemmatized_tokens, stop_words = 'english').fit_transform(documents)
@@ -38,6 +41,9 @@ def remove_punctuation_marks(text) :
     punctuation_marks = dict((ord(punctuation_mark), None) for punctuation_mark in string.punctuation)
     return text.translate(punctuation_marks)
 
+app = Flask(__name__)
+api = Api(app)
+
 class Reply(Resource) :
     def get(self) :
         if request.args.get('q') :
@@ -49,11 +55,8 @@ class Reply(Resource) :
         else :
             return simplejson.dumps([{'error': 'query is empty'}])
 
-if __name__ == "__main__" :
-    corpus = open('corpus.txt', 'r' , errors = 'ignore').read().lower()
-    documents = nltk.sent_tokenize(corpus)
+api.add_resource(Reply, '/reply.json')
 
-    app = Flask(__name__)
-    api = Api(app)
-    api.add_resource(Reply, '/reply.json')
+if __name__ == "__main__" :
+
     app.run()
