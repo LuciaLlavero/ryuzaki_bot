@@ -1,11 +1,11 @@
 # coding: utf-8
 
 import constants
-from flask import Flask, request
+from flask import Flask, jsonify, request
+from flask_cors import CORS
 from flask_restful import Resource, Api
 import nltk
 import random
-import simplejson
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import string
@@ -42,6 +42,7 @@ def remove_punctuation_marks(text) :
     return text.translate(punctuation_marks)
 
 app = Flask(__name__)
+cors = CORS(app)
 api = Api(app)
 
 class Reply(Resource) :
@@ -49,11 +50,11 @@ class Reply(Resource) :
         if request.args.get('q') :
             formality_reply = get_formalities_reply(request.args.get('q'))
             if  formality_reply :
-                return simplejson.dumps([{'reply': formality_reply + ' ' + random.choice(constants.SWEETS)}])
+                return jsonify({'reply': formality_reply + ' ' + random.choice(constants.SWEETS)})
             else :
-                return simplejson.dumps([{'reply': get_query_reply(request.args.get('q'))}])
+                return jsonify({'reply': get_query_reply(request.args.get('q'))})
         else :
-            return simplejson.dumps([{'error': 'query is empty'}])
+            return jsonify({'error': 'query is empty'})
 
 api.add_resource(Reply, '/reply.json')
 
