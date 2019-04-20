@@ -1,6 +1,6 @@
 # Hi there, I'm RyuzakiBot!
 
-Looking for a free open source chatbot? RyuzakiBot is a simple retrieval-based chatbot made from scratch in Python using NLTK and scikit-learn. Try it out here: [https://ryuzaki-bot.herokuapp.com/](https://ryuzaki-bot.herokuapp.com/) Please notice that website is deployed on a free Heroku server and it would takes some time to load and to answer for the first time.
+Looking for a free open source chatbot? RyuzakiBot is a simple retrieval-based chatbot made from scratch in Python3 using NLTK and scikit-learn. Try it out here: [https://ryuzaki-bot.herokuapp.com/](https://ryuzaki-bot.herokuapp.com/) Please notice that website is deployed on a free Heroku server and it would takes some time to load and to answer for the first time.
 
 ## Using your own corpus
 
@@ -8,14 +8,14 @@ If you would like to train RyuzakiBot on a different subject, please just change
 
 ## API REST
 
-RyuzakiBot uses microframework [Flask](http://flask.pocoo.org/docs/1.0/) and its extension that adds support for quickly building REST APIs: [Flask-RESTful](https://flask-restful.readthedocs.io/en/latest/index.html). You can make HTTPS requests to the API here:[https://ryuzaki-bot-api.herokuapp.com/reply.json?q=what%20is%20a%20conversational%20bot?](https://ryuzaki-bot-api.herokuapp.com/reply.json?q=what%20is%20a%20conversational%20bot?)  `q=` will hold query and all GET requests will return a JSON object. 
+RyuzakiBot uses microframework [Flask](http://flask.pocoo.org/docs/1.0/) and its extension that adds support for quickly building REST APIs: [Flask-RESTful](https://flask-restful.readthedocs.io/en/latest/index.html). You can make HTTPS requests to the API here: [https://ryuzaki-bot-api.herokuapp.com/reply.json?q=what%20is%20a%20conversational%20bot?](https://ryuzaki-bot-api.herokuapp.com/reply.json?q=what%20is%20a%20conversational%20bot?)  `q=` will hold query and all GET requests will return a JSON object. 
 
 ## Implementation
 
 This chatbot is written in Python3 and mainly uses:
 
-- **NLTK:** natural language processing (NLP) and artificial intelligence library: NLTK, for text pre-processing (removing noise, stop words, stemming and lemmatizing). Please visit [https://www.nltk.org/](https://www.nltk.org/) for more info.
-- **scikit-learn:** data mining and data analysis library: scikit-learn. RyuzakiBot takes all last paragraph pre-processed documents, transforms them into numerical vectors with [TF-IDF method](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) and compares cosine from angles formed between all documents and the one from query with [cosine similary numerical method](https://en.wikipedia.org/wiki/Cosine_similarity). Please find all scikit-learn documentation here: [https://www.nltk.org/](https://www.nltk.org/) 
+- NLTK: is a natural language processing (NLP) and artificial intelligence library. NLTK is used for text pre-processing (removing noise, stop words, stemming and lemmatizing). Please visit [https://www.nltk.org/](https://www.nltk.org/) for more info.
+- scikit-learn: is a data mining and data analysis library. RyuzakiBot takes all last paragraph pre-processed documents, transforms them into numerical vectors with [TF-IDF method](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) and compares cosine from angles formed between all documents and the one from query with [cosine similary numerical method](https://en.wikipedia.org/wiki/Cosine_similarity). Please find all scikit-learn documentation here: [https://www.nltk.org/](https://www.nltk.org/) 
 
 ## About the author
 
