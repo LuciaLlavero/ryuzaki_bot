@@ -5,4 +5,3 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 __pycache__/
-.DS_Store
